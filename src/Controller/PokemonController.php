@@ -12,20 +12,16 @@ use Symfony\Component\Routing\Annotation\Route;
 class PokemonController extends AbstractController
 {
 
-  #[Route("/pokemon")]
+  #[Route("/pokemon/{id}", name: "getpokemon")]
 
-  public function getPokemon()
+  public function getPokemon(EntityManagerInterface $doctrine, $id)
   {
-    $pokemon = [
-      "nombre" => "Pikachu",
-      "description" => "amarillo",
-      "img" => "https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png",
-      "codigo" => "1"
-    ];
+    $repositorio = $doctrine->getRepository(Pokemon::class);
+    $pokemon = $repositorio->find($id);
     return $this->render("Pokemons/GetPokemon.html.twig", ["pokemon" => $pokemon]);
   }
 
-  #[Route("/pokemons")]
+  #[Route("/pokemons", name: "listpokemons")]
   public function listPokemons(EntityManagerInterface $doctrine)
   {
     $repositorio = $doctrine->getRepository(Pokemon::class);
