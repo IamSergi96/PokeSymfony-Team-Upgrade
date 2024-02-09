@@ -15,7 +15,13 @@
             </div>
             <div class="row">
               <ul>
-                {# DEBILIDADES #}
+              {#}hacemos un bucle para poder recorer todas todas las debilidades  #}
+                {% for debilidad in pokemon.debilidades %}
+              {#}cuando imprimimos la debilidad hay que tener cuidado ya que se imprimira como objeto asi que le especificamos cual es el valor dentro del objeto que
+              queremos imprimir  #}
+                <li>{{debilidad.nombre}}</li>
+              {#}importante cierro el buble  #}
+                {% endfor %}
               </ul>
             </div>
           </div>
