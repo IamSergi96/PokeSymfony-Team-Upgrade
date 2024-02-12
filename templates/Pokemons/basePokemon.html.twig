@@ -35,6 +35,7 @@
             >
             <a class="nav-link" href="{{path("listpokemons")}}">Listar Pokemon</a>
             <a class="nav-link" href="{{path("newPokemon")}}">Crear Pokemon</a>
+            <p>{{app.user.name|default("")}}</p>
           </div>
         </div>
       </nav>
