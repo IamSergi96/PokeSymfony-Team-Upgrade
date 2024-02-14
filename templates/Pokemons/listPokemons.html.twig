@@ -17,8 +17,9 @@
                         <p class="card-text">{{pokemon.description}}</p>
                         <a href="{{path("getpokemon", {"id": pokemon.id})}}" class="btn btn-primary">Más Info</a>
                         <a href="{{path("editpokemon", {"id": pokemon.id})}}" class="btn btn-primary">Editar</a>
+                        {% if is_granted("ROLE_ADMIN") %}
                         <a href="{{path("borrarpokemon", {"id": pokemon.id})}}" class="btn btn-danger">Borrar</a>
-
+                        {% endif %}
                     </div>
                 </div>
             </div>
